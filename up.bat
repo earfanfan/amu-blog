@@ -1,0 +1,1 @@
+npx quartz sync
