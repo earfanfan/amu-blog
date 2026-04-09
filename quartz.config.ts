@@ -11,7 +11,7 @@ const config: QuartzConfig = {
     pageTitle: "阿木",
     pageTitleSuffix: "",
     enableSPA: false,
-    enablePopovers: true,
+    enablePopovers: false,
     analytics: {
       provider: "plausible",
     },
