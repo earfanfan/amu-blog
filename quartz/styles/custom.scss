@@ -1,3 +1,53 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* 更柔和、纪念向的阅读节奏 */
+article {
+	p,
+	li {
+		line-height: 1.9;
+		letter-spacing: 0.01em;
+	}
+
+	h1,
+	h2,
+	h3 {
+		letter-spacing: 0.02em;
+	}
+
+	h2 {
+		margin-top: 1.9rem;
+		margin-bottom: 0.8rem;
+		padding-bottom: 0.25rem;
+		border-bottom: 1px solid var(--lightgray);
+	}
+}
+
+/* 引用更温柔、可读性更高 */
+blockquote {
+	border-left: 3px solid var(--secondary);
+	background: color-mix(in srgb, var(--light) 85%, var(--secondary) 15%);
+	border-radius: 0.4rem;
+	padding: 0.7rem 0.9rem;
+	margin: 1rem 0;
+}
+
+/* 图片展示更像“相册” */
+article img {
+	border-radius: 0.6rem;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 首页目录区域更清晰 */
+article ul li,
+article ol li {
+	margin: 0.35rem 0;
+}
+
+/* 链接颜色和下划线更克制 */
+a.internal,
+a.external {
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+}
