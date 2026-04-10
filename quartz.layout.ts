@@ -57,7 +57,6 @@ export const defaultContentPageLayout: PageLayout = {
       folderDefaultState: "open",
       folderClickBehavior: "link",
       useSavedState: false,
-      filterFn: (node) => node.name !== "assets",
     }),
   ],
   right: [
