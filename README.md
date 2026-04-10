@@ -1,6 +1,6 @@
 # 维护说明
 
-这是[阿木](hushway.github.io/amu-blog)的博客，这份说明给共同维护者使用，只在 GitHub 网页就能完成内容更新（复杂的更新pull到本地再push更方便）。
+这是[阿木](https://hushway.github.io/amu-blog/)的博客，这份说明给共同维护者使用，只在 GitHub 网页就能完成内容更新（复杂的更新pull到本地再push更方便）。
 
 ---
 
