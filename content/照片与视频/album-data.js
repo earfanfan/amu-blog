@@ -1,7 +1,7 @@
 window.__amuAlbumData = {
   video: [
     { src: "阿木.mp4", title: "阿木", type: "video" },
-    { src: "追逐的小狗.mp4", title: "追逐的小狗", type: "video" },
+    // { src: "追逐的小狗.mp4", title: "追逐的小狗", type: "video" },
     { src: "出门前的笑脸-2025-08-29.mp4", title: "出门前的笑脸", type: "video" },
     { src: "阿木转尾巴-2025-8-29.mp4", title: "阿木转尾巴", type: "video" },
   ],
@@ -17,8 +17,8 @@ window.__amuAlbumData = {
     { src: "富贵和小狗相遇-2025-03-21.jpg", title: "富贵和小狗相遇" },
     { src: "小八与黑豆-2025-5-29.jpg", title: "小八与黑豆" },
     { src: "小小狗-2025-3-21.jpg", title: "小小狗" },
-    { src: "时光小火车-2023-10-22-01.jpg", title: "时光小火车" },
-    { src: "炸鱼块-2024-12-26.jpg", title: "炸鱼块" },
+    // { src: "时光小火车-2023-10-22-01.jpg", title: "时光小火车" },
+    // { src: "炸鱼块-2024-12-26.jpg", title: "炸鱼块" },
     { src: "爬山的阿木-2025-1-5.jpg", title: "爬山的阿木" },
     { src: "穿上衣服的阿木-2025-10-27.jpg", title: "穿上衣服的阿木" },
     { src: "等待的阿木-2025-3-5.jpg", title: "等待的阿木" },
