@@ -4,6 +4,7 @@ window.__amuAlbumData = {
     // { src: "追逐的小狗.mp4", title: "追逐的小狗", type: "video" },
     { src: "出门前的笑脸-2025-08-29.mp4", title: "出门前的笑脸", type: "video" },
     { src: "阿木转尾巴-2025-8-29.mp4", title: "阿木转尾巴", type: "video" },
+    { src: "阿木追逐狗主落水.mp4", title: "阿木追逐狗主落水", type: "video" },
   ],
   photos: [
     { src: "人像模式下睡觉的阿木-2024-11-13.jpg", title: "人像模式下睡觉的阿木" },
