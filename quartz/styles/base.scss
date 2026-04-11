@@ -554,10 +554,11 @@ tr {
 }
 
 img {
-  max-width: 100%;
+  max-width: 70%;
   border-radius: 5px;
-  margin: 1rem 0;
+  margin: 1rem auto;
   content-visibility: auto;
+  display: block;
 }
 
 p > img + em {
@@ -575,8 +576,21 @@ hr {
 
 audio,
 video {
-  width: 100%;
+  width: 70%;
   border-radius: 5px;
+  margin: 1rem auto;
+  display: block;
+}
+
+@media all and ($mobile) {
+  img {
+    max-width: 100%;
+  }
+
+  audio,
+  video {
+    width: 100%;
+  }
 }
 
 .spacer {
