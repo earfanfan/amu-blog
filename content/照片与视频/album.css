@@ -17,6 +17,7 @@
 .album-grid img,
 .album-grid video {
 	width: 100%;
+	max-width: 100%;
 	aspect-ratio: 4 / 3;
 	object-fit: cover;
 	margin: 0;
@@ -72,4 +73,44 @@
 	.album-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
+}
+
+/* GLightbox：仅视频全屏，图片保持默认居中 */
+.glightbox-container .gslide-video {
+	width: 100vw !important;
+	height: 100vh !important;
+	max-width: 100vw !important;
+	max-height: 100vh !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	background: #000;
+}
+
+.glightbox-container .gslide-video .gvideo-wrapper {
+	width: 100vw !important;
+	height: 100vh !important;
+	max-width: 100vw !important;
+	max-height: 100vh !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	margin: 0 auto !important;
+}
+
+.glightbox-container .gslide-video video {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: 100vw !important;
+	max-height: 100vh !important;
+	object-fit: contain !important;
+	margin: 0 auto !important;
+}
+
+.glightbox-container .gslide-video .plyr,
+.glightbox-container .gslide-video .plyr__video-wrapper {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: 100vw !important;
+	max-height: 100vh !important;
 }
