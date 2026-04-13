@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // put your custom CSS here!
 
@@ -37,6 +38,96 @@ blockquote {
 article img {
 	border-radius: 0.6rem;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 正文媒体：图片更大一点，视频单独限制高度 */
+article > p > img,
+article > p > video,
+article > p > audio,
+article > figure img,
+article > figure video,
+article > figure audio {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+article > p > img,
+article > figure img {
+	max-width: min(92%, 980px);
+	width: auto;
+	height: auto;
+	max-height: 82vh;
+	object-fit: contain;
+}
+
+article > p > video,
+article > p > audio,
+article > figure video,
+article > figure audio {
+	width: min(94%, 1080px);
+	max-width: 100%;
+	max-height: 80vh;
+	object-fit: contain;
+}
+
+article .table-container img {
+	max-width: 100%;
+	max-height: none;
+	width: 100%;
+}
+
+article .table-container video,
+article .table-container audio {
+	width: 100%;
+	max-height: none;
+}
+
+/* 表格里的并排图片：桌面双列、手机单列 */
+article .table-container table:has(img) {
+	width: 100%;
+	margin: 1rem 0 1.5rem;
+	border-collapse: separate;
+	border-spacing: 0.6rem 0;
+	table-layout: fixed;
+}
+
+article .table-container table:has(img) td,
+article .table-container table:has(img) th {
+	padding: 0;
+}
+
+article .table-container table:has(img) td > p {
+	margin: 0;
+}
+
+article .table-container table:has(img) img {
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	box-shadow: none;
+	border-radius: 0.8rem;
+}
+
+@media all and ($mobile) {
+	article .table-container table:has(img) {
+		border-spacing: 0;
+		table-layout: auto;
+	}
+
+	article .table-container table:has(img),
+	article .table-container table:has(img) tbody,
+	article .table-container table:has(img) tr,
+	article .table-container table:has(img) td,
+	article .table-container table:has(img) th {
+		display: block;
+		width: 100%;
+	}
+
+	article .table-container table:has(img) td + td,
+	article .table-container table:has(img) th + th {
+		margin-top: 0.8rem;
+	}
 }
 
 /* 首页目录区域更清晰 */
