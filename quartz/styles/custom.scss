@@ -142,3 +142,141 @@ a.external {
 	text-decoration-thickness: 1px;
 	text-underline-offset: 2px;
 }
+
+/* --- Index Page Specific Styles --- */
+.index-page {
+  .hero-container {
+    margin-bottom: 2rem;
+    
+    p {
+      margin: 0 0 0.65rem 0;
+      line-height: 1.72;
+    }
+    
+    blockquote {
+      margin: 0 0 1.5rem 0;
+      padding: 0.62rem 0.8rem;
+      border-left: 4px solid var(--secondary);
+      background: rgba(210,150,80,0.08);
+      border-radius: 8px;
+      color: var(--darkgray);
+      line-height: 1.58;
+      font-style: italic;
+      font-size: 1.02em;
+      font-weight: 600;
+    }
+    
+    h2 {
+      margin-top: 0;
+    }
+  }
+  
+  .hero-image {
+    float: left;
+    width: 320px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin: 0 28px 16px 0;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .hero-image {
+      float: none;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto 1.5rem auto;
+      display: block;
+    }
+  }
+
+  .story-progress {
+    margin-top: 4rem;
+    color: var(--darkgray);
+    font-size: 0.88em;
+    
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--darkgray);
+    }
+  }
+}
+
+/* --- Recent Notes Component Tweaks --- */
+.recent-notes {
+  margin-top: 2.5rem;
+  
+  > h3 {
+    font-size: 1.15rem !important;
+    margin-bottom: 1.2rem;
+    color: var(--dark);
+    font-weight: 600;
+  }
+  
+  .recent-ul {
+    max-height: 520px;
+    overflow-y: auto;
+    display: block !important;
+    margin: 0 !important;
+    padding-right: 12px;
+    list-style: none;
+    font-family: inherit;
+    
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: color-mix(in srgb, var(--secondary) 30%, transparent);
+      border-radius: 8px;
+      
+      &:hover {
+        background-color: color-mix(in srgb, var(--secondary) 60%, transparent);
+      }
+    }
+  }
+
+  .recent-li {
+    margin: 0 0 1.2rem 0 !important;
+    padding: 0 0 1.2rem 0 !important;
+    border-bottom: 1px dashed color-mix(in srgb, var(--gray) 30%, transparent);
+    
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    
+    h3 {
+      font-size: 1rem !important;
+      margin: 0 0 0.4rem 0 !important;
+      line-height: 1.4 !important;
+      font-weight: 600;
+      
+      a {
+        color: var(--secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        
+        &:hover {
+          color: var(--tertiary);
+        }
+      }
+    }
+    
+    .section-p {
+      display: none; /* Hide snippet text if present */
+    }
+    
+    .meta {
+      font-size: 0.85rem !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+      color: var(--gray) !important;
+      opacity: 0.8;
+    }
+  }
+}
