@@ -5,8 +5,8 @@ cssclasses:
 ---
 
 <div class="hero-container">
-
 <img src="./照片与视频/阿木爱意眼神-2024-8-31.jpg" alt="阿木爱意眼神" class="hero-image" />
+<div class="hero-content">
 
 阿木（约2019年3月27日—2026年2月23日），武汉市小动物保护协会会长家的狗下的崽，在2019年5月11日被狗主在领养活动上挑中，此后与[狗主](https://yuanfan.rbind.io/)共同生活近七年，最终因肾脏、肺部恶性肿瘤离世。
 
@@ -21,7 +21,7 @@ cssclasses:
 - [生病与告别](./05-生病与告别) — 阿木的病情与最后的时光
 - [照片与视频](./照片与视频) — 阿木的影像记录与相册
 
-<div style="clear: both;"></div>
+</div>
 </div>
 
 <details class="story-progress">
