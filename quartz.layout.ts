@@ -15,7 +15,7 @@ export const sharedPageComponents: SharedLayout = {
         categoryId: 'DIC_kwDOQ8xrjM4C1JYZ',
         mapping: 'title',
         strict: false,
-        reactionsEnabled: '1',
+        reactionsEnabled: true,
         inputPosition: 'top',
       }
     }),
@@ -60,7 +60,33 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   right: [
-    Component.TableOfContents()
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "最近更新",
+        limit: 12,
+        showTags: false,
+        sort: (f1, f2) => {
+          const modified1 = f1.dates?.modified?.getTime() ?? 0
+          const modified2 = f2.dates?.modified?.getTime() ?? 0
+          if (modified1 !== modified2) {
+            return modified2 - modified1
+          }
+          const title1 = f1.frontmatter?.title?.toLowerCase() ?? ""
+          const title2 = f2.frontmatter?.title?.toLowerCase() ?? ""
+          return title1.localeCompare(title2)
+        },
+        filter: (f) => {
+          const slug = f.slug
+          if (!slug) return false
+          return slug !== "index" && !slug.startsWith("tags/")
+        },
+      }),
+      condition: (props) => props.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.TableOfContents(),
+      condition: (props) => props.fileData.slug !== "index",
+    }),
     // Component.Graph(),
     // Component.DesktopOnly(Component.TableOfContents()),
     // Component.Backlinks(),
