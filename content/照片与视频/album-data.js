@@ -56,6 +56,7 @@ window.__amuAlbumData = {
     { src: "阿木生气.jpg", title: "阿木生气" },
     { src: "阿木无辜.jpg", title: "阿木无辜" },
     { src: "20190511-01.jpg", title: "领养第一天：刚到新家的阿木" },
-    { src: "20190515-01.jpg", title: "到家第五天：日常的特写" }
+    { src: "20190515-01.jpg", title: "到家第五天：日常的特写" },
+    { src: "IMG_20260416_212002.jpg", title: "去医院看望阿木" }
   ],
 }
