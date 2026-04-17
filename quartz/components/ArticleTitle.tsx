@@ -6,7 +6,7 @@ const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
   if (title) {
     const showGithubIcon = fileData.slug === "index"
     return (
-      <h1 class={classNames(displayClass, "article-title")}>
+      <h1 class={classNames(displayClass, "article-title", showGithubIcon ? "is-index-title" : "is-regular-title")}>
         {title}
         {showGithubIcon && (
           <>
@@ -47,7 +47,11 @@ const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
 
 ArticleTitle.css = `
 .article-title {
-  margin: 2rem 0 0 0;
+  margin: 2rem 0 0.9rem 0;
+}
+
+.article-title.is-index-title {
+  margin-bottom: 1.45rem;
 }
 
 .github-inline {
