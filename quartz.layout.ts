@@ -9,10 +9,10 @@ export const sharedPageComponents: SharedLayout = {
     Component.Comments({
       provider: 'giscus',
       options: {
-        repo: 'earfanfan/blog',
-        repoId: 'R_kgDOQ8xrjA',
+        repo: 'earfanfan/amu-blog',
+        repoId: 'R_kgDOR9Fnaw',
         category: 'Announcements',
-        categoryId: 'DIC_kwDOQ8xrjM4C1JYZ',
+        categoryId: 'DIC_kwDOR9Fna84C7Bka',
         mapping: 'title',
         strict: false,
         reactionsEnabled: true,
