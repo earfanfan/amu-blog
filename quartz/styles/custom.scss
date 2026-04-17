@@ -234,17 +234,23 @@ a.external {
 
 /* --- Recent Notes Component Tweaks --- */
 .recent-notes {
-  margin-top: 2rem;
-  
+  margin-top: 1.25rem;
+  padding: 0.95rem 0.9rem;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--light) 72%, transparent);
+
   > h3 {
-    font-size: 1rem !important;
-    margin-bottom: 0.75rem;
-    color: var(--dark);
+    font-size: 0.8rem !important;
+    margin-bottom: 0.7rem;
+    color: var(--gray);
     font-weight: 600;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 72%, transparent);
+    padding-bottom: 0.4rem;
   }
-  
+
   .recent-ul {
-    max-height: 480px;
+    max-height: 440px;
     overflow-y: auto;
     display: block !important;
     margin: 0 !important;
@@ -269,9 +275,9 @@ a.external {
   }
 
   .recent-li {
-    margin: 0 0 0.55rem 0 !important;
-    padding: 0 0 0.45rem 0 !important;
-    border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 55%, transparent);
+    margin: 0 0 0.8rem 0 !important;
+    padding: 0 !important;
+    border-bottom: none;
     
     &:last-child {
       border-bottom: none;
@@ -280,18 +286,18 @@ a.external {
     }
     
     h3 {
-      font-size: 0.95rem !important;
-      margin: 0 0 0.12rem 0 !important;
+      font-size: 0.88rem !important;
+      margin: 0 0 0.2rem 0 !important;
       line-height: 1.3 !important;
-      font-weight: 600;
+      font-weight: 400;
       
       a {
-        color: var(--secondary);
+        color: var(--darkgray);
         text-decoration: none;
         transition: color 0.2s ease;
         
         &:hover {
-          color: var(--tertiary);
+          color: var(--secondary);
         }
       }
     }
@@ -301,11 +307,11 @@ a.external {
     }
     
     .meta {
-      font-size: 0.78rem !important;
+      font-size: 0.72rem !important;
       margin: 0 !important;
       line-height: 1.15 !important;
       color: var(--gray) !important;
-      opacity: 0.8;
+      opacity: 0.9;
     }
   }
 }

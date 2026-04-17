@@ -63,7 +63,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ConditionalRender({
       component: Component.RecentNotes({
         title: "最近更新",
-        limit: 12,
+        limit: 20,
         showTags: false,
         sort: (f1, f2) => {
           const modified1 = f1.dates?.modified?.getTime() ?? 0
