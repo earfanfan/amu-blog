@@ -7,6 +7,7 @@
 article {
 	p,
 	li {
+    font-size: 1rem;
 		line-height: 1.9;
 		letter-spacing: 0.01em;
 	}
@@ -14,15 +15,27 @@ article {
 	h1,
 	h2,
 	h3 {
+    font-weight: 600;
 		letter-spacing: 0.02em;
 	}
 
+  h1 {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
 	h2 {
+    font-size: 1.38rem;
 		margin-top: 1.9rem;
 		margin-bottom: 0.8rem;
 		padding-bottom: 0.25rem;
 		border-bottom: 1px solid var(--lightgray);
 	}
+
+  h3 {
+    font-size: 1.1rem;
+    line-height: 1.45;
+  }
 }
 
 /* 引用更温柔、可读性更高 */
@@ -32,6 +45,8 @@ blockquote {
 	border-radius: 0.4rem;
 	padding: 0.7rem 0.9rem;
 	margin: 1rem 0;
+  font-size: 1.03rem;
+  line-height: 1.8;
 }
 
 /* 图片展示更像“相册” */
