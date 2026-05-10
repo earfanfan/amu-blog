@@ -9,7 +9,7 @@ document.addEventListener("nav", () => {
   const day = now.getDate()
 
   // 测试时 true；正式上线前改回 false
-  const FORCE_SHOW = true
+  const FORCE_SHOW = false
 
   if (!FORCE_SHOW && !(month === 5 && day === 11)) return
 
