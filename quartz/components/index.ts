@@ -24,6 +24,7 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import ArchiveDirectory from "./ArchiveDirectory"
+import Popup511 from "./5.11Popup" //fu添加了5.11弹窗
 
 export {
   ArticleTitle,
@@ -52,4 +53,5 @@ export {
   Flex,
   ConditionalRender,
   ArchiveDirectory,
+  Popup511,
 }

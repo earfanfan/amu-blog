@@ -1,0 +1,743 @@
+#may-eleven-popup-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.may-eleven-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 38, 35, 0.45);
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.may-eleven-stage {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.may-eleven-stage.is-active {
+  display: flex;
+}
+
+/* 第一阶段 */
+
+.may-eleven-stage-reveal {
+  overflow: hidden;
+}
+
+.may-eleven-reveal-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(255, 211, 143, 0.8) 0%, rgba(255, 211, 143, 0.22) 42%, rgba(255, 211, 143, 0) 72%);
+  filter: blur(8px);
+  animation: revealGlow 2s ease-in-out infinite;
+}
+
+.may-eleven-reveal-card {
+  position: relative;
+  width: min(520px, 90vw);
+  text-align: center;
+  background: linear-gradient(180deg, #fffaf4 0%, #fff4e6 100%);
+  border: 1px solid #efdfc8;
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+  padding: 34px 28px 30px;
+  animation: revealCardIn 0.45s ease;
+}
+
+.may-eleven-reveal-kicker {
+  color: #d48253;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.may-eleven-reveal-title {
+  margin: 0;
+  color: #3a2e26;
+  font-size: 2rem;
+  line-height: 1.3;
+  font-family: var(--titleFont);
+}
+
+.may-eleven-reveal-subtitle {
+  margin-top: 12px;
+  color: #7b6657;
+  line-height: 1.8;
+}
+
+.may-eleven-reveal-date {
+  margin-top: 8px;
+  color: #9b7d69;
+  font-size: 0.92rem;
+}
+
+.may-eleven-reveal-btn {
+  margin-top: 24px;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 24px;
+  background: linear-gradient(135deg, #f0a15f 0%, #d48253 100%);
+  color: #fffaf5;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(212, 130, 83, 0.3);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.may-eleven-reveal-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(212, 130, 83, 0.34);
+}
+
+.may-eleven-stage-reveal.is-leaving .may-eleven-reveal-card {
+  animation: revealCardOut 0.48s ease forwards;
+}
+
+.may-eleven-stage-reveal.is-leaving .may-eleven-reveal-glow {
+  animation: revealGlowBurst 0.48s ease forwards;
+}
+
+/* 第二阶段 */
+
+.may-eleven-stage-letter {
+  overflow: hidden;
+}
+
+.may-eleven-popup-card {
+  width: min(1040px, 95vw);
+  height: min(88vh, 920px);
+  background: linear-gradient(180deg, #fffaf2 0%, #fff6eb 100%);
+  color: #3a2e26;
+  border: 1px solid #eadfcd;
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+  padding: 24px 24px 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(16px) scale(0.985);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.may-eleven-popup-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.may-eleven-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 999px;
+  background: #f2e5d4;
+  color: #5c4a3d;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.may-eleven-popup-topline {
+  font-size: 0.88rem;
+  color: #a07b63;
+  margin-bottom: 10px;
+  letter-spacing: 0.06em;
+  flex: 0 0 auto;
+}
+
+.may-eleven-popup-header {
+  margin-bottom: 18px;
+  padding-right: 48px;
+  flex: 0 0 auto;
+}
+
+.may-eleven-popup-kicker {
+  color: #d48253;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.may-eleven-popup-title {
+  margin: 0;
+  font-size: 2.15rem;
+  line-height: 1.25;
+  font-family: var(--titleFont);
+}
+
+.may-eleven-popup-subtitle {
+  margin-top: 8px;
+  color: #7b6657;
+  font-size: 1rem;
+}
+
+.may-eleven-popup-subtitle.second {
+  margin-top: 4px;
+  color: #b27653;
+}
+
+.may-eleven-popup-body {
+  display: grid;
+  grid-template-columns: minmax(360px, 1.06fr) minmax(380px, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 统一滚动条主题 */
+
+.may-eleven-popup-growth-track,
+.may-eleven-popup-letter {
+  scrollbar-width: thin;
+  scrollbar-color: #c9b19a #f3e8da;
+}
+
+.may-eleven-popup-growth-track::-webkit-scrollbar,
+.may-eleven-popup-letter::-webkit-scrollbar {
+  width: 10px;
+}
+
+.may-eleven-popup-growth-track::-webkit-scrollbar-track,
+.may-eleven-popup-letter::-webkit-scrollbar-track {
+  background: #f3e8da;
+  border-radius: 999px;
+}
+
+.may-eleven-popup-growth-track::-webkit-scrollbar-thumb,
+.may-eleven-popup-letter::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d3baa3 0%, #be9d84 100%);
+  border-radius: 999px;
+  border: 2px solid #f3e8da;
+}
+
+.may-eleven-popup-growth-track::-webkit-scrollbar-thumb:hover,
+.may-eleven-popup-letter::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #cba98f 0%, #b79074 100%);
+}
+
+/* 左侧固定区域 */
+
+.may-eleven-popup-growth-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: start;
+  position: sticky;
+  top: 0;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.may-eleven-popup-growth-header {
+  padding: 4px 2px 2px;
+  flex: 0 0 auto;
+}
+
+.may-eleven-popup-growth-kicker {
+  color: #d48253;
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.03em;
+}
+
+.may-eleven-popup-growth-subtitle {
+  color: #8d735f;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.may-eleven-popup-growth-track {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 8px;
+}
+
+.may-eleven-popup-growth-track-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-left: 24px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.may-eleven-popup-growth-track-inner::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(225, 166, 121, 0.82) 0%,
+    rgba(236, 212, 190, 0.92) 100%
+  );
+}
+
+.may-eleven-popup-growth-item {
+  position: relative;
+  animation: growthFadeIn 0.7s ease both;
+}
+
+.may-eleven-popup-growth-item:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.may-eleven-popup-growth-item:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.may-eleven-popup-growth-item:nth-child(3) {
+  animation-delay: 0.28s;
+}
+
+.may-eleven-popup-growth-item:nth-child(4) {
+  animation-delay: 0.38s;
+}
+
+.may-eleven-popup-growth-node {
+  position: absolute;
+  left: -1px;
+  top: 58px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #e59a63;
+  box-shadow: 0 0 0 4px rgba(229, 154, 99, 0.14);
+  z-index: 2;
+}
+
+.may-eleven-popup-growth-card {
+  margin-left: 14px;
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: 14px;
+  align-items: start;
+  background: rgba(255, 250, 242, 0.96);
+  border: 1px solid #ecdcc8;
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 8px 18px rgba(90, 60, 40, 0.05);
+}
+
+.may-eleven-popup-growth-photo-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #f0e4d7;
+  box-shadow:
+    0 10px 24px rgba(85, 58, 40, 0.08),
+    inset 0 0 0 1px #faf1e7;
+  transform-origin: center center;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+  cursor: zoom-in;
+}
+
+.may-eleven-popup-growth-photo-frame.tilt-left {
+  transform: rotate(-3deg);
+}
+
+.may-eleven-popup-growth-photo-frame.tilt-right {
+  transform: rotate(3deg);
+}
+
+.may-eleven-popup-growth-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #f7f2ea;
+  transition: transform 0.32s ease;
+}
+
+.may-eleven-popup-growth-card:hover .may-eleven-popup-growth-photo-frame {
+  transform: rotate(0deg) translateY(-3px) scale(1.06);
+  box-shadow:
+    0 18px 34px rgba(85, 58, 40, 0.16),
+    inset 0 0 0 1px #faf1e7;
+  border-color: #e7cdb6;
+  z-index: 3;
+}
+
+.may-eleven-popup-growth-card:hover .may-eleven-popup-growth-photo {
+  transform: scale(1.08);
+}
+
+.may-eleven-popup-growth-meta {
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.may-eleven-popup-growth-date {
+  color: #8d735f;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.may-eleven-popup-growth-title {
+  color: #d48253;
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.may-eleven-popup-growth-text {
+  color: #5f4d40;
+  line-height: 1.82;
+  font-size: 0.95rem;
+}
+
+/* 右侧信件单独滚动 */
+
+.may-eleven-popup-letter-wrap {
+  perspective: 1200px;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.may-eleven-popup-letter {
+  position: relative;
+  border: 1px solid #e8d8c4;
+  border-radius: 20px;
+  padding: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 246, 0.98) 0%, rgba(255, 247, 237, 0.99) 100%),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 35px,
+      rgba(227, 213, 197, 0.52) 35px,
+      rgba(227, 213, 197, 0.52) 36px
+    );
+  box-shadow:
+    0 12px 30px rgba(90, 60, 40, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transform-origin: top center;
+  animation: unfoldLetter 0.72s ease both;
+  height: 100%;
+  min-height: 0;
+  overflow: auto;
+}
+
+.may-eleven-popup-letter-inner {
+  position: relative;
+  padding: 22px 22px 18px 34px;
+  min-height: 100%;
+}
+
+.may-eleven-popup-letter-inner::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 18px;
+  bottom: 18px;
+  width: 1px;
+  background: rgba(218, 156, 132, 0.55);
+  pointer-events: none;
+}
+
+.may-eleven-popup-stamp {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 4px 10px;
+  border: 1px dashed #d9b89d;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #a06d4f;
+  background: #fff8ef;
+  position: relative;
+  z-index: 1;
+}
+
+.may-eleven-popup-letter-content {
+  line-height: 2.05;
+  color: #4d3f34;
+  position: relative;
+  z-index: 1;
+  padding-left: 8px;
+}
+
+.may-eleven-popup-letter-content p {
+  margin: 0 0 0.95em;
+}
+
+.may-eleven-popup-signoff {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.may-eleven-popup-signature {
+  color: #6f5748;
+  font-size: 1rem;
+  text-align: right;
+}
+
+.may-eleven-popup-date {
+  color: #9b7d69;
+  font-size: 0.92rem;
+  text-align: right;
+}
+
+.may-eleven-popup-note {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #e4d6c4;
+  color: #a06d4f;
+  font-size: 0.96rem;
+  position: relative;
+  z-index: 1;
+}
+
+.may-eleven-popup-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+}
+
+.may-eleven-popup-link {
+  margin-right: auto;
+  text-decoration: none;
+  color: #d48253;
+  font-weight: 600;
+  padding: 10px 4px;
+}
+
+.may-eleven-popup-link:hover {
+  text-decoration: underline;
+}
+
+.may-eleven-popup-btn {
+  border: 1px solid #e4d6c4;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.may-eleven-popup-btn.secondary {
+  background: #f6efe6;
+  color: #5c4a3d;
+}
+
+.may-eleven-popup-btn.primary {
+  background: #d48253;
+  color: #fffaf5;
+  border-color: #d48253;
+  box-shadow: 0 8px 20px rgba(212, 130, 83, 0.24);
+}
+
+.may-eleven-popup-btn.primary:hover {
+  background: #c87444;
+}
+
+/* 动画 */
+
+@keyframes revealGlow {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes revealCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes revealCardOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes revealGlowBurst {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes unfoldLetter {
+  0% {
+    opacity: 0;
+    transform: rotateX(-26deg) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
+}
+
+@keyframes growthFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式 */
+
+@media (max-width: 900px) {
+  .may-eleven-popup-card {
+    height: auto;
+    max-height: 88vh;
+    overflow: auto;
+  }
+
+  .may-eleven-popup-body {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .may-eleven-popup-growth-column {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .may-eleven-popup-growth-track {
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .may-eleven-popup-growth-track-inner::before {
+    bottom: 10px;
+  }
+
+  .may-eleven-popup-letter-wrap {
+    height: auto;
+    overflow: visible;
+  }
+
+  .may-eleven-popup-letter {
+    height: auto;
+    overflow: visible;
+  }
+
+  .may-eleven-popup-letter-inner {
+    min-height: auto;
+  }
+
+  .may-eleven-popup-letter-inner::before {
+    bottom: 18px;
+  }
+
+  .may-eleven-popup-growth-card {
+    grid-template-columns: 120px 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .may-eleven-stage {
+    padding: 14px;
+  }
+
+  .may-eleven-reveal-card {
+    padding: 28px 18px 24px;
+  }
+
+  .may-eleven-reveal-title {
+    font-size: 1.5rem;
+  }
+
+  .may-eleven-popup-card {
+    padding: 18px 18px 16px;
+    border-radius: 20px;
+  }
+
+  .may-eleven-popup-title {
+    font-size: 1.6rem;
+  }
+
+  .may-eleven-popup-growth-card {
+    grid-template-columns: 96px 1fr;
+    gap: 10px;
+  }
+
+  .may-eleven-popup-growth-text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .may-eleven-popup-actions {
+    justify-content: stretch;
+  }
+
+  .may-eleven-popup-link {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .may-eleven-popup-btn {
+    width: 100%;
+  }
+}

@@ -19,6 +19,13 @@ export const sharedPageComponents: SharedLayout = {
         inputPosition: 'top',
       }
     }),
+
+    //xiaofu加入，用于将5.11弹窗组件挂进页面
+    Component.ConditionalRender({
+      component: Component.Popup511(),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+    
   ],
   footer: Component.Footer({
     links: {
